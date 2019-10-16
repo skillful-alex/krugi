@@ -9,6 +9,7 @@ class Animal extends Plant {
     OnTick(world) {
         this.x = this.x + Math.floor(Math.random() * 10) - 5;
         this.y = this.y + Math.floor(Math.random() * 10) - 5;
+        return this;
     }
 }
 

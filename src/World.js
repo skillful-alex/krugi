@@ -46,12 +46,16 @@ class World extends React.Component {
         for (let index = 0; index < this.plants.length; index++) {
             this.plants[index].Paint(ctx);
         }
+        ctx.font = "18px serif";
+        ctx.fillStyle = '#000000';
+        ctx.fillText(this.state.tick, 10, 20);
+        
     }
 
     render() {
         return (
-            <div>
-            {this.state.tick}
+            <div>                        
+            <input type="checkbox" /> UFO
             <canvas ref="canvas" width={this.props.width} height={this.props.height}/>
             </div>
         );

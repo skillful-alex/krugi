@@ -9,6 +9,7 @@ class Plant {
     }
 
     onTick(world) {
+        return this;
     }
 
     Paint(ctx){
