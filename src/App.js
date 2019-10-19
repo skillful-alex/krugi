@@ -1,20 +1,15 @@
 import React from 'react';
 import './App.css';
+import MenuFr from './menu';
 import  World from  './World';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-
 import GitHubForkRibbon from 'react-github-fork-ribbon'; 
+import { Menu } from 'material-ui';
 
 function App() {
   return (
-    <div className="App">
-      <Box>
-      <Button href="/documentation">Documentation</Button>
-      <Button href="/howtodevelop">How to develop</Button>
-      <Button href="/statistic">Statistic</Button>
-      </Box>
-      <World  width={500} height={500} />
+    <div>
+      <MenuFr />     
+      <World  width={1400} height={735} />
       <GitHubForkRibbon position="right" 
                         color="red"
                         href="https://github.com/skillful-alex/krugi" 
