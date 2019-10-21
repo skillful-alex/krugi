@@ -1,20 +1,29 @@
-class Plant {
-    constructor(WorldWidth, WorldHeight){
-    //    super(WorldWidth, WorldHeight);
-        this.x = Math.floor(Math.random() * WorldWidth);
-        this.y = Math.floor(Math.random() * WorldHeight);
-        this.width = 5;
-        this.height = 5;
-        this.color = 'green';
+import Life from './Life'
+
+class Plant extends Life {
+    constructor(world){
+        super(world);
+        this.Size = 5;
+        this.Color = 'green';
     }
 
-    onTick(world) {
-        return this;
+    OnTick() {
+        super.OnTick();
+        if (this.Energy > 10) {
+            this.Prepare({GiveBirth: 1});
+        }
     }
 
-    Paint(ctx){
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);        
+    Do(Action) {
+        super.Do(Action);
+        if (Action.GiveBirth === 1){
+            this.Energy = this.Energy-5;
+            this.world.lives.push(  new Plant(this.world) );
+        }
+        if ((this.world.tick - this.BirthDate)>60) {
+            this.Energy = 0;
+        }        
+        this.Size = this.Energy;
     }
 }
 
